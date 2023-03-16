@@ -20,7 +20,7 @@ const CountryList = () => {
   }
 
   return (
-    <section>
+    <section className="px-6 md:px-10 pb-8 min-h-screen text-lightTextColor dark:bg-darkColor dark:text-darkTextColor font-nunito pt-10">
       <Filter />
       <article className="flex flex-row flex-wrap gap-8 justify-center">
         {countries.map((country, index) => {
@@ -28,7 +28,7 @@ const CountryList = () => {
           return (
             <Link
               to={`/${name.common}`}
-              className="w-5/6 md:w-[15rem] 2xl:w-[17rem] h-[21rem] border dark:border-darkColor rounded-md shadow-md"
+              className="w-5/6 sm:w-[15rem] 2xl:w-[17rem] h-[21rem] border dark:border-darkColor rounded-md shadow-md"
               key={index}
             >
               <img
@@ -36,20 +36,20 @@ const CountryList = () => {
                 alt={name.common}
                 className="h-[50%] w-full rounded-t-md"
               />
-              <div className="px-6 pt-5">
-                <h1 className="font-bold text-lg pb-1">{name.common}</h1>
-                <p className="text-md font-medium">
+              <div className="px-4 md:px-6 pt-3 md:pt-5">
+                <h1 className="font-bold text-md md:text-lg pb-1">{name.common}</h1>
+                <p className="text-sm md:text-md font-medium">
                   Population:{" "}
-                  <span className="font-normal text-sm">
+                  <span className="font-normal text-xs md:text-sm">
                     {populationInThousand(population)}
                   </span>
                 </p>
-                <p className="text-md font-medium">
-                  Region: <span className="font-normal text-sm">{region}</span>
+                <p className="text-sm md:text-md font-medium">
+                  Region: <span className="font-normal text-xs md:text-sm">{region}</span>
                 </p>
-                <p className="text-md font-medium">
+                <p className="text-sm md:text-md font-medium">
                   Capital:{" "}
-                  <span className="font-normal text-sm md:text-xs">
+                  <span className="font-normal text-xs md:text-sm md:text-xs">
                     {capital}
                   </span>
                 </p>

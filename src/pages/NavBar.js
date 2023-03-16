@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { BsMoon, BsSun } from "react-icons/bs";
-import { Outlet } from "react-router-dom";
 
-const HomePage = () => {
+const NavBar = () => {
   const [darkMode, setDarkMode] = useState(null);
   useEffect(() => {
     if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
@@ -25,8 +24,8 @@ const HomePage = () => {
   
   return (
     <main className="text-lightTextColor dark:bg-darkColor dark:text-darkTextColor font-nunito">
-      <header className="h-[4.5rem] border dark:border-darkColor shadow-md px-10 flex items-center justify-between">
-        <h2 className="text-lg font-bold">Where in the world?</h2>
+      <header className="h-[4.5rem] border dark:border-lightTextColor shadow-md px-5 sm:px-10 flex gap-2 items-center justify-between text-sm sm:text-lg">
+        <h2 className="font-bold">Where in the world?</h2>
         <div
           className="flex gap-2 items-center font-semibold cursor-pointer"
           onClick={handleDarkModeSwitch}
@@ -39,11 +38,8 @@ const HomePage = () => {
           )}
         </div>
       </header>
-      <section className="px-10 pb-8 min-h-screen">
-        <Outlet />
-      </section>
     </main>
   );
 };
 
-export default HomePage;
+export default NavBar;

@@ -1,21 +1,20 @@
-import React from 'react'
+import React from "react";
 import { AiOutlineSearch } from "react-icons/ai";
-import { useCountryContext } from '../context/country_context';
-
+import { useCountryContext } from "../context/country_context";
 
 const Filter = () => {
-     const {
-       filters: { search },
-       region,
-       updateFilters,
-       updateSearch,
-       countries_duplicate,
-    } = useCountryContext();
-    
-    const unique = countries_duplicate.map((item) => item["region"]);
-    const uniqueNames = ["Filter by Region", ...new Set(unique)];
+  const {
+    filters: { search },
+    region,
+    updateFilters,
+    updateSearch,
+    countries_duplicate,
+  } = useCountryContext();
+
+  const unique = countries_duplicate.map((item) => item["region"]);
+  const uniqueNames = ["Filter by Region", ...new Set(unique)];
   return (
-    <form className="flex md:flex-row flex-col items-center md:justify-between gap-y-4 my-10 md:h-14">
+    <form className="flex md:flex-row flex-col items-center md:justify-between gap-y-4 mb-10 md:h-14">
       <div className="rounded-md md:w-[25rem] w-full border-1 dark:border-darkColor shadow-lg flex h-full items-center py-2 md:py-0">
         <AiOutlineSearch className="w-1/6" />
         <input
@@ -43,9 +42,8 @@ const Filter = () => {
           })}
         </select>
       </div>
-      <div></div>
     </form>
   );
-}
+};
 
-export default Filter
+export default Filter;
