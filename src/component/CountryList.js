@@ -27,7 +27,7 @@ const CountryList = () => {
           const { flags, population, name, capital, region } = country;
           return (
             <Link
-              to={`/${name.common}`}
+              to={`/country/${name.common}`}
               className="w-5/6 sm:w-[15rem] 2xl:w-[17rem] h-[21rem] border dark:border-darkColor rounded-md shadow-md"
               key={index}
             >
@@ -37,7 +37,9 @@ const CountryList = () => {
                 className="h-[50%] w-full rounded-t-md"
               />
               <div className="px-4 md:px-6 pt-3 md:pt-5">
-                <h1 className="font-bold text-md md:text-lg pb-1">{name.common}</h1>
+                <h1 className="font-bold text-md md:text-lg pb-1">
+                  {name.common}
+                </h1>
                 <p className="text-sm md:text-md font-medium">
                   Population:{" "}
                   <span className="font-normal text-xs md:text-sm">
@@ -45,7 +47,10 @@ const CountryList = () => {
                   </span>
                 </p>
                 <p className="text-sm md:text-md font-medium">
-                  Region: <span className="font-normal text-xs md:text-sm">{region}</span>
+                  Region:{" "}
+                  <span className="font-normal text-xs md:text-sm">
+                    {region}
+                  </span>
                 </p>
                 <p className="text-sm md:text-md font-medium">
                   Capital:{" "}

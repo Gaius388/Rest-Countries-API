@@ -8,7 +8,7 @@ function App() {
       <NavBar />
       <Routes>
         <Route path="/" element={<CountryList />} />
-        <Route path=":id" element={<SingleCountry />} />
+        <Route path="country/:id" element={<SingleCountry />} />
       </Routes>
     </BrowserRouter>
   );

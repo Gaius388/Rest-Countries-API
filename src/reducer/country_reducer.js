@@ -35,14 +35,12 @@ const country_reducer = (state, action) => {
     return {
       ...state,
       single_country_loading: true,
-      single_country_error: false,
     };
   }
   if (action.type === GET_SINGLE_COUNTRY_DATA_SUCCESS) {
     return {
       ...state,
       single_country_loading: false,
-      single_country_error: false,
       single_countries: action.payload,
     };
   }

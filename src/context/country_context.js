@@ -1,4 +1,5 @@
 import React, { useContext, useReducer, useEffect } from "react";
+import axios from "axios";
 import reducer from "../reducer/country_reducer";
 import {
   GET_COUNTRY_DATA_BEGIN,
@@ -19,7 +20,7 @@ const initialState = {
   countries: [],
   single_country_loading: false,
   single_country_error: false,
-  single_countries: {},
+  single_countries: [],
   countries_duplicate: [],
   region: "Filter by Region",
   filters: {
@@ -34,9 +35,8 @@ export const CountryProvider = ({ children }) => {
   const fetchCountryData = async () => {
     dispatch({ type: GET_COUNTRY_DATA_BEGIN });
     try {
-      const response = await fetch(`https://restcountries.com/v3.1/all`);
-      const data = await response.json();
-      console.log(data);
+      const response = await axios.get(`https://restcountries.com/v3.1/all`);
+      const data =  response.data
       dispatch({ type: GET_COUNTRY_DATA_SUCCESS, payload: data });
     } catch (error) {
       dispatch({ type: GET_COUNTRY_DATA_ERROR });
@@ -45,10 +45,8 @@ export const CountryProvider = ({ children }) => {
   const fetchSingleCountry = async (name) => {
     dispatch({ type: GET_SINGLE_COUNTRY_DATA_BEGIN });
     try {
-      const response = await fetch(
-        `https://restcountries.com/v3.1/name/${name}?fullText=true`
-      );
-      const data = await response.json();
+      const response = await axios.get(name);
+      const data =  response.data[0]
       dispatch({ type: GET_SINGLE_COUNTRY_DATA_SUCCESS, payload: data });
     } catch (error) {
       dispatch({ type: GET_SINGLE_COUNTRY_DATA_ERROR });
