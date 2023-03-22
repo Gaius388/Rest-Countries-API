@@ -70,6 +70,7 @@ export const CountryProvider = ({ children }) => {
   };
 
   useEffect(() => {
+    fetchSingleCountry(`https://restcountries.com/v3.1/name/nigeria?fullText=true`);
     fetchCountryData();
   }, []);
   return (
